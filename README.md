@@ -17,17 +17,6 @@ The main goal of this project is to understand complete ASIC design methodology 
 
 ## 📂 Repository Structure
 
-riscv_project/
-├── rtl/
-├── tb/
-├── verification/
-├── synthesis/
-├── sta/
-├── physical_design/
-├── docs/
-├── waves/
-├── reports/
-└── scripts/
 # 🔹 PART 1: RTL DESIGN & PROCESSOR IMPLEMENTATION
 
 ## 1️⃣ Design Specification
@@ -141,4 +130,341 @@ The processor follows a structured datapath/control path methodology.
 - ALU control signals  
 - Branch enable  
 - Memory enable  
-- Register write enable  
+- Register write enable
+
+  # 🔹 PART 2: FUNCTIONAL VERIFICATION
+
+## 🎯 Objective
+
+To verify functional correctness of the processor across all instruction classes and corner cases.
+
+---
+
+## 1️⃣ Verification Methodology
+
+- Directed testbenches  
+- Self-checking verification environment  
+- Assertions  
+- Automated regressions  
+- Waveform debugging  
+- Golden reference comparison  
+
+---
+
+## 2️⃣ Verification Tools Used
+
+- Verilator  
+- Icarus Verilog  
+- GTKWave  
+- Python  
+- cocotb  
+- Spike ISA Simulator  
+
+---
+
+## 3️⃣ Directed Tests Performed
+
+### Arithmetic Tests
+
+- ADD correctness  
+- SUB correctness  
+- Signed comparison tests  
+
+### Logic Tests
+
+- AND / OR / XOR verification  
+- Immediate logic operations  
+
+### Memory Tests
+
+- Load word verification  
+- Store word verification  
+- Address alignment checks  
+
+### Branch Tests
+
+- Branch taken  
+- Branch not taken  
+- Jump target validation  
+
+### Register File Tests
+
+- Read-after-write check  
+- x0 constant zero verification  
+
+---
+
+## 4️⃣ Assertions Implemented
+
+- x0 register always zero  
+- Program counter remains aligned  
+- No invalid memory write during reset  
+- Proper control signal activation  
+- Valid branch update sequencing  
+
+---
+
+## 5️⃣ Golden Reference Validation
+
+Processor behavior compared with **Spike RISC-V ISA Simulator**.
+
+### Compared Parameters
+
+- Register values  
+- Program Counter flow  
+- Instruction execution results  
+- Memory transactions  
+
+---
+
+## 6️⃣ Regression Flow
+
+Multiple tests executed automatically using Python/cocotb.
+
+### Outputs
+
+- PASS / FAIL summary  
+- Execution logs  
+- Error traces  
+- Functional confidence improvement  
+
+---
+
+# 🔹 PART 3: SYNTHESIS FLOW
+
+## Tool Used
+
+- **Cadence Genus**
+
+---
+
+## Inputs
+
+- RTL Verilog files  
+- Timing constraints (`.sdc`)  
+- Standard cell libraries (`.lib`)  
+
+---
+
+## Synthesis Goals
+
+- Area optimization  
+- Timing closure  
+- Balanced PPA targets  
+- Clean netlist generation  
+
+---
+
+## Outputs Generated
+
+- Gate-level netlist  
+- Area report  
+- Power report  
+- Timing report  
+- Constraint summary  
+
+---
+
+## Learnings
+
+- Constraint-driven synthesis  
+- Combinational logic optimization  
+- Sequential cell mapping  
+- Area vs timing trade-offs  
+
+---
+
+# 🔹 PART 4: FORMAL VERIFICATION
+
+## Tool Used
+
+- **Cadence Conformal**
+
+---
+
+## Objective
+
+Verify equivalence between:
+
+RTL Design = Synthesized Gate Netlist
+
+# 🔹 PART 5: STATIC TIMING ANALYSIS (STA)
+
+## Tool Used
+
+- **Cadence Tempus**
+
+---
+
+## Timing Checks Performed
+
+- Setup analysis  
+- Hold analysis  
+- Critical path extraction  
+- Slack measurement  
+- Clock path timing checks  
+
+---
+
+## Learnings
+
+- Timing closure methodology  
+- Setup/Hold understanding  
+- Delay path optimization  
+- Constraint debugging  
+
+---
+
+# 🔹 PART 6: PHYSICAL DESIGN (RTL → GDSII)
+
+## Tool Used
+
+- **Cadence Innovus**
+
+---
+
+## Objective
+
+Implement backend flow and generate final manufacturable layout database.
+
+---
+
+## 1️⃣ Floorplanning
+
+- Core area definition  
+- Utilization planning  
+- Macro placement planning  
+- IO pin planning  
+- Power ring generation  
+
+### Observations
+
+- Lower utilization improves routability  
+- Higher utilization reduces die area  
+
+---
+
+## 2️⃣ Placement
+
+- Standard cell placement  
+- Wirelength optimization  
+- Congestion reduction  
+- Timing-driven placement  
+
+### Effects
+
+- Improved path delay  
+- Better density balance  
+
+---
+
+## 3️⃣ Clock Tree Synthesis (CTS)
+
+- Clock buffer insertion  
+- Clock skew balancing  
+- Hold fixing buffers  
+
+### Effects
+
+- Reduced skew  
+- Better hold timing  
+- Stable clock distribution  
+
+---
+
+## 4️⃣ Routing
+
+- Global routing  
+- Detailed routing  
+- Via optimization  
+- DRC cleanup  
+
+### Effects
+
+- Final connectivity completion  
+- Timing improvement after route  
+
+---
+
+## 5️⃣ Final Outputs
+
+- Routed design database  
+- DEF / GDSII files  
+- Timing reports  
+- Power reports  
+- Utilization summary  
+
+---
+
+# 🔹 PART 7: PPA ANALYSIS
+
+## Power
+
+- Leakage Power  
+- Internal Power  
+- Switching Power  
+
+## Performance
+
+- Critical path delay  
+- Setup/Hold closure  
+- Frequency potential  
+
+## Area
+
+- Standard cell area  
+- Core utilization  
+- Density optimization  
+
+---
+
+# 🛠️ Tools & Technologies
+
+## RTL / Verification
+
+- Verilog HDL  
+- SystemVerilog  
+- Verilator  
+- Icarus Verilog  
+- GTKWave  
+- Python  
+- cocotb  
+- Spike ISA Simulator  
+
+## ASIC Design Flow
+
+- Cadence Genus  
+- Cadence Conformal  
+- Cadence Tempus  
+- Cadence Innovus  
+
+## FPGA Validation
+
+- Vivado  
+
+## Scripting
+
+- TCL  
+- Bash  
+
+---
+
+# 📊 Key Learnings
+
+- Complete Processor RTL to GDSII Flow  
+- Processor microarchitecture implementation  
+- Functional verification methodology  
+- Assertions and regression testing  
+- Synthesis and optimization techniques  
+- Formal verification flow  
+- Static timing closure  
+- Floorplanning, Placement, CTS, Routing  
+- Power, Performance, Area trade-offs  
+- Real-world ASIC design methodology  
+
+---
+# 👨‍💻 Author
+
+**Rajnesh Kumar**  
+M.Tech VLSI
+
